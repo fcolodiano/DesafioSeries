@@ -1,7 +1,6 @@
 namespace DesafioSeries
 {
     using System;
-
     public class Serie : EntidadeBase
     {
         //Atributos 
@@ -22,6 +21,11 @@ namespace DesafioSeries
         }
 
 
+        private bool Excluido
+        {
+            get; set;
+
+        }
         //Construtor
         public Serie(int Id, Genero genero, string titulo, string descricao, int ano)
         {
@@ -30,6 +34,7 @@ namespace DesafioSeries
             this.Titulo = titulo;
             this.Descricao = descricao;
             this.Ano = ano;
+            this.Excluido = false;
         }
 
         public override string ToString()
@@ -39,6 +44,7 @@ namespace DesafioSeries
             retorno += "Titulo: " + this.Titulo + Environment.NewLine;
             retorno += "Descricao: " + this.Descricao + Environment.NewLine;
             retorno += "Ano de início: " + this.Ano;
+            retorno += "Excluido: " + this.Excluido;
 
             return retorno;
         }
@@ -48,9 +54,18 @@ namespace DesafioSeries
             return this.Titulo;
         }
 
+        public bool retornaExcluido()
+        {
+            return this.Excluido;
+        }
         public int retornaId()
         {
             return this.Id;
+        }
+
+        public void Excluir()
+        {
+            this.Excluido = true;
         }
     }
 }
